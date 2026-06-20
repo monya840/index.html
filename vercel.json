@@ -1,7 +1,11 @@
 {
-  "functions": {
-    "api/smartsuite.js": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "api/smartsuite.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/smartsuite", "dest": "/api/smartsuite.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
